@@ -34,10 +34,16 @@ async function loadPosts() {
         time.dateTime = date.toISOString();
         time.textContent = date.toISOString().slice(0, 16).replace("T", " ") + " UTC";
 
-        const body = document.createElement("p");
-        body.textContent = text.trim();
+        const [, firstLine, rest] = text.trim().match(/^(.*?)(?:\r?\n([\s\S]*))?$/);
+        const heading = document.createElement("h1");
+        heading.textContent = firstLine;
+        article.append(time, heading);
 
-        article.append(time, body);
+        if (rest) {
+            const body = document.createElement("p");
+            body.textContent = rest;
+            article.append(body);
+        }
         container.append(article);
     }
 }
