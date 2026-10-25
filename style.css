@@ -19,8 +19,14 @@ body {
     opacity: 0.6;
 }
 
-.text p {
+.text h1 {
     margin: 0.5rem 0 0;
+    font-size: 1em;
+    white-space: pre-wrap;
+}
+
+.text p {
+    margin: 0;
     white-space: pre-wrap;
 }
 
